@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: aqua;
+}
+
+#grid{
+    max-width: 1000px;
+}
+
+.square{
+    width: calc(100%/10);
+    height: calc(100%/10); 
+    background-color: gray;
+    border: solid black 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-selected{
+    background-color: #fff;
+}
