@@ -6,10 +6,12 @@ function creationOfCells(num){
     return element;
 }
 
- const grid=document.getElementById('grid');
+function ctreationOfTheGrid(){
+    const grid=document.getElementById('grid');
+}
 
  for(let i=0; i<100; i++){
-    let square = creationOfCells(i+1);
+    let square = creationOfCells(i+1,sideCells);
     square.addEventListener('click', function(){
     })
     grid.appendChild(square);
