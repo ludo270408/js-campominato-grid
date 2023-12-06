@@ -1,51 +1,52 @@
-function creationOfCells(num){
+function creationOfCells(num, row_cells){
     const square = document.createElement('div');
     square.classList.add('square');
-    span.innerText=num;
-    square.appendChild(span);
-
-    return element;
+    square.style.width='calc(100% / $(row_cells))';
+    square.style.height=square.style.width;
+    square.innerText=num;
+    return square;
 }
+let cellTotal;
 
-function ctreationOfTheGrid(){
-    const grid=document.getElementById('grid'); 
-    const difficulty= document.getElementById('difficulty');
-    let level= difficulty.value
-}
-
- for(let i=0; i<100; i++){
-    let cell = creationOfCells();
-    grid.appendChild(square);
-}
-
-function creationOfTheGridBasedOnLevels(){
-    document.getElementById('grid').innerHTML='';
-    let levelSelector=document.getElementById('difficulty');
-    let level = parseInt(levelSelector.value);
-    square.addEventListener('click', function(){
-    })
-    let cellTotal;
-    let sideCells;
-
-    switch(level){
-        case 1:
-            cellTotal=100;
-            sideCells=10;
-            break;
-        case 2:
-            cellTotal=100;
-            sideCells=10;
-            break;
-        case 2:
-            cellTotal=81;
-            sideCells=9;
-            break;
-        case 2:
-            cellTotal=64;
-            sideCells=8;
-            break;
-        default:
-            cellTotal=100;
-            sideCells=10;
+function creationOfTheGrid(cellTotal, row_cells){
+    for(let i=0; i<cellTotal; i++){
+        let cell = creationOfCells(i);
+        cell.addEventlistener('click', function(){
+            this.classList.add('clicked');
+            console.log(this. innerText);
+        });
+        grid.appendChild(cell);
     }
 }
+
+function GameStart(){
+    const grid=document.getElementById('grid'); 
+    const difficulty= document.getElementById('difficulty');
+    let level= difficulty.value;
+    switch(level){
+        case 1:
+                cellTotal=100;
+                break;
+        case 2:
+                cellTotal=100;
+                break;
+        case 3:
+                cellTotal=81;
+                break;
+        case 4:
+                cellTotal=64;
+                break;
+        
+        default:
+                
+    }
+    let cellsRow=Math.sqrt(CellsTotal);
+    grid.innerHTML=' ';
+
+    creationOfTheGrid(cellsRow, cellTotal);
+}
+
+const play_button=document.getElementById('play');
+play_button.addEventListener('click', function (){
+    GameStart();
+})
