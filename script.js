@@ -1,19 +1,20 @@
 function creationOfCells(num){
-    const element = document.createElement('div');
-    element.classList.add('square');
-    element.innerText=num;
+    const square = document.createElement('div');
+    square.classList.add('square');
+    span.innerText=num;
+    square.appendChild(span);
 
     return element;
 }
 
 function ctreationOfTheGrid(){
-    const grid=document.getElementById('grid');
+    const grid=document.getElementById('grid'); 
+    const difficulty= document.getElementById('difficulty');
+    let level= difficulty.value
 }
 
  for(let i=0; i<100; i++){
-    let square = creationOfCells(i+1,sideCells);
-    square.addEventListener('click', function(){
-    })
+    let cell = creationOfCells();
     grid.appendChild(square);
 }
 
@@ -21,6 +22,8 @@ function creationOfTheGridBasedOnLevels(){
     document.getElementById('grid').innerHTML='';
     let levelSelector=document.getElementById('difficulty');
     let level = parseInt(levelSelector.value);
+    square.addEventListener('click', function(){
+    })
     let cellTotal;
     let sideCells;
 
