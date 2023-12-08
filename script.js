@@ -51,10 +51,10 @@ function createNewMatch(){
 
 function createPlayground(totCells, cellsPerSide){
     const grid = document.getElementById('grid'); 
-    for(let i=0; i<totcells; i++){
+    for(let i=0; i<totCells; i++){
         let square = creationOfCells(i+1, cellsPerSide);
     
-        square.addEventlistener('click', function(){
+        square.addEventListener('click', function(){
             this.classList.toggle('clicked');
         });
         
