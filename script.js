@@ -46,7 +46,7 @@ function createNewMatch(){
         break;        
     }
 
-    createPlayground(cellsPerSide, numberOfCells);
+    createPlayground(numberOfCells, cellsPerSide);
 }
 
 function createPlayground(totCells, cellsPerSide){

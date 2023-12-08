@@ -8,6 +8,11 @@ body{
     background-color: aqua;
 }
 
+#grid{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .square{
     background-color: gray;
     border: solid black 1px;
