@@ -9,11 +9,13 @@ body{
 }
 
 #grid{
-    display: flex;
+    width: 1000px;
     flex-wrap: wrap;
 }
 
 .square{
+    width: 100px;
+    height: 100px;
     background-color: gray;
     border: solid black 1px;
     display: flex;
