@@ -8,17 +8,7 @@ body{
     background-color: aqua;
 }
 
-#grid{
-    max-width: 1000px;
-    height: 1000px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 .square{
-    width: calc(100%/10);
-    height: calc(100%/10); 
     background-color: gray;
     border: solid black 1px;
     display: flex;
@@ -26,6 +16,14 @@ body{
     align-items: center;
 }
 
-.cell-selected{
+.square span{
+    opacity: 0;
+}
+
+.square.clicked span{
+    opacity: 1;
+}
+
+.clicked{
     background-color: #fff;
 }

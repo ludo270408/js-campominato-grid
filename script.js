@@ -1,52 +1,67 @@
-function creationOfCells(num, row_cells){
-    const square = document.createElement('div');
-    square.classList.add('square');
-    square.style.width='calc(100% / $(row_cells))';
-    square.style.height=square.style.width;
-    square.innerText=num;
-    return square;
-}
-let cellTotal;
+function creationOfCells(num, numberForSide){
+    const element = document.createElement('div');
+    element.classList.add('square');
+    let sideLenght = 'calc(100vw / ${numberForSide})';
+    const grid = document.getElementById('grid');
+    grid.style.width = numberForSide * sideLenght;
+    grid.style.height = numberForSide * sideLenght;
+    element.style.width = sideLenght;
+    element.style.height= sideLenght;
 
-function creationOfTheGrid(cellTotal, row_cells){
-    for(let i=0; i<cellTotal; i++){
-        let cell = creationOfCells(i);
-        cell.addEventlistener('click', function(){
-            this.classList.add('clicked');
-            console.log(this. innerText);
-        });
-        grid.appendChild(cell);
-    }
+    const span = document.createElement('span');
+    element.appendChild(span);
+
+    element.innerText=num;
+
+    return element;
 }
 
-function GameStart(){
-    const grid=document.getElementById('grid'); 
-    const difficulty= document.getElementById('difficulty');
-    let level= difficulty.value;
+function createNewMatch(){
+    document.getElementById('grid').innerHTML = '';
+    let levelChosen = document.getElementById('difficulty');
+    let level = parseInt(levelChosen.value);
+
+    let numberOfCells;
+    let cellsPerSide;
     switch(level){
-        case 1:
-                cellTotal=100;
-                break;
+        case 1: 
+            numberOfCells = 100;
+            cellsPerSide = 10;
+            break;
         case 2:
-                cellTotal=100;
-                break;
+            numberOfCells = 100;
+            cellsPerSide = 10;
+            break;
         case 3:
-                cellTotal=81;
-                break;
+            numberOfCells = 81;
+            cellsPerSide = 9;
+            break;
         case 4:
-                cellTotal=64;
-                break;
-        
-        default:
-                
+            numberOfCells = 64;
+            cellsPerSide = 8;
+            break;
+        default: 
+        numberOfCells = 100;
+        cellsPerSide = 10;
+        break;        
     }
-    let cellsRow=Math.sqrt(CellsTotal);
-    grid.innerHTML=' ';
 
-    creationOfTheGrid(cellsRow, cellTotal);
+    createPlayground(cellsPerSide, numberOfCells);
 }
 
-const play_button=document.getElementById('play');
-play_button.addEventListener('click', function (){
-    GameStart();
+function createPlayground(totCells, cellsPerSide){
+    const grid = document.getElementById('grid'); 
+    for(let i=0; i<totcells; i++){
+        let square = creationOfCells(i+1, cellsPerSide);
+    
+        square.addEventlistener('click', function(){
+            this.classList.toggle('clicked');
+        });
+        
+        grid.appendChild(square);
+    }
+}
+
+document.getElementById('play').addEventListener( 'click', function(){
+    createNewMatch();
 })
